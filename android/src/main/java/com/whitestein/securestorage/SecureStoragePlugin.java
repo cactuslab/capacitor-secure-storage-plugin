@@ -1,6 +1,7 @@
 package com.whitestein.securestorage;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.getcapacitor.JSObject;
 import com.getcapacitor.NativePlugin;
@@ -29,6 +30,7 @@ public class SecureStoragePlugin extends Plugin {
     public void set(PluginCall call) {
         String key = call.getString("key");
         String value = call.getString("value");
+        String mode = call.getString("user_presence");
         try {
             call.resolve(this._set(key,value));
         } catch (Exception exception) {

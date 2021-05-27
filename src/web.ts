@@ -17,7 +17,7 @@ export class SecureStoragePluginWeb extends WebPlugin implements SecureStoragePl
         })
       : Promise.reject('Item with given key does not exist');
   }
-  set(options: { key: string; value: string }): Promise<{ value: boolean }> {
+  set(options: { key: string; value: string; mode: string }): Promise<{ value: boolean }> {
     localStorage.setItem(this.addPrefix(options.key), btoa(options.value));
     return Promise.resolve({ value: true });
   }
